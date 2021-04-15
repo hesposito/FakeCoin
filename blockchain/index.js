@@ -1,5 +1,5 @@
 const Block = require('./block');
-const cryptoHash = require('./crypto-hash');
+const cryptoHash = require('../util/crypto-hash');
 
 class Blockchain {
 	constructor() {
@@ -21,7 +21,7 @@ class Blockchain {
 		}
 
 		for (let i = 1; i < chain.length; i++) {
-			const { timestamp, lastHash, hash, data, nonce, difficulty } = chain[i];
+			const { timestamp, lastHash, hash, nonce, difficulty, data } = chain[i];
 			const actualLastHash = chain[i-1].hash;
 			const lastDifficulty = chain[i-1].difficulty;
 
